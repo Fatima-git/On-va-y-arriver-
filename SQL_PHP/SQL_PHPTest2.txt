@@ -1,0 +1,24 @@
+<?php
+// on se connecte à notre base
+$base = mysql_connect ('serveur', 'login', 'pass');
+mysql_select_db ('ma_base', $base) ;
+?>
+<html>
+<head>
+<title>Numéro de téléphone de LA GLOBULE</title>
+</head>
+<body>
+<?php
+// lancement de la requete
+$sql = 'SELECT telephone FROM liste_proprietaire WHERE nom = "LA GLOBULE"';
+
+// on lance la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
+$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
+
+// on recupere le resultat sous forme d'un tableau
+$data = mysql_fetch_array($req);
+
+// on libère l'espace mémoire alloué pour cette interrogation de la base
+mysql_free_result ($req);
+mysql_close ();
+?>
