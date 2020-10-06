@@ -5,8 +5,8 @@
 function SQLQuerry( $req )
 {
     $servername = "10.115.49.73";
-    $username = "xavier";
-    $password = "xavier";
+    $username = "nicolas";
+    $password = "nicolas";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password);
@@ -47,7 +47,7 @@ function SQLQuerry( $req )
     print "Salut " . $name . "!, votre adresse e-mail est ". $email;
 
 
-    $req = "INSERT INTO xavier.form01 (nom, email ) VALUES ( '$name', '$email' );";
+    $req = "INSERT INTO nicolas.formulaire (nom, email ) VALUES ( '$name', '$email' );";
     SQLQuerry( $req );
   }
 ?>
@@ -57,7 +57,7 @@ function SQLQuerry( $req )
     <title>Formulaire en PHP/MySQL</title>
   </head>
   <body>
-    <form method="post" action="formulaire01.php">
+    <form method="post" action="create_table.php">
       <input type="text" name="Name" placeholder="Entrez votre nom" /><br />
       <input type="email" name="Email" placeholder="Entrez votre Email" /><br />
       <input type="submit" value="Submit" />
