@@ -1,12 +1,13 @@
 <?php
   // Vérifie qu'il provient d'un formulaire
-  //CREATE TABLE xavier.form01 ( id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, nom VARCHAR(255), email VARCHAR(255) );
+  //CREATE TABLE fouad.users ( id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, nom VARCHAR(255), email VARCHAR(255) );
 
 function SQLQuerry( $req )
 {
     $servername = "10.115.49.73";
-    $username = "nicolas";
-    $password = "nicolas";
+    $username   = "fouad";
+    $password   = "fouad";
+    $dbname     = "fouad";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password);
@@ -47,8 +48,8 @@ function SQLQuerry( $req )
     print "Salut " . $name . "!, votre adresse e-mail est ". $email;
 
 
-   // $req = "INSERT INTO nicolas.formulaire (nom, email ) VALUES ( '$name', '$email' );";
-    //SQLQuerry( $req );
+    $req = "INSERT INTO fouad.users (name, email ) VALUES ( '$name', '$email' );";
+    SQLQuerry( $req );
   }
 ?>
 
@@ -57,7 +58,7 @@ function SQLQuerry( $req )
     <title>Formulaire en PHP/MySQL</title>
   </head>
   <body>
-    <form method="post" action="create_table.php">
+    <form method="post" action="Formulaire.Save_SQL.php">
       <input type="text" name="Name" placeholder="Entrez votre nom" /><br />
       <input type="email" name="Email" placeholder="Entrez votre Email" /><br />
       <input type="submit" value="Submit" />
